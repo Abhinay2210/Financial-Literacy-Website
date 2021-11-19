@@ -194,7 +194,8 @@ inc=0
 exp=0
 
 percent=[0,0]
-
+sum=0
+rem=0
 def confirm_inv(request):
     global inc, exp
     member = Profile.objects.get(user__id=request.user.id)
@@ -205,10 +206,13 @@ def confirm_inv(request):
     mf=request.POST["mutual_funds"]
     fd=request.POST["fds"]
     gold=request.POST["gold"]
-
+    sum=int(stck)+int(mf)+int(fd)+int(gold)
+    rem=prtf.balance-sum
     if int(stck)+int(mf)+int(fd)+int(gold) == 0:
         return redirect(request.META.get('HTTP_REFERER'))
-    
+    if rem<0:
+        messages.info(request,"Limit Exceeded")
+        return redirect(request.META.get('HTTP_REFERER'))
     # if prtf.pg_no==0:
     #     return redirect(request.META.get('HTTP_REFERER'))
     if prtf.pg_no==1:
