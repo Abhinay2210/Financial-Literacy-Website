@@ -14,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nothing+You+Could+Do&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Zeta-2</title>
@@ -272,22 +271,21 @@
             <div class="open_button cursive1 hide" id="footer6">But since childhood you always wished to have your own car of
                     price approx 8 lakhs.</div>
             <h3 class="cursive blue hide" id="footer7">So you decide to buy a car now and fulfill your childhood dream.</h3><br>
-            <form action="invest" class="text-center cursive1 blue"method="POST">
 
             <div class="container1 hide" id="footer8">
                 <button type="button" class="btn btn-outline-info cursive1" style="border: 2px solid black;" data-toggle="collapse" data-target="#demo33"> You have two options...</button>
                   <div id="demo33" class="collapse green">
+                    <form action="invest" class="text-center cursive1 blue"method="POST">
                         {% csrf_token %}
                         <li><input type="radio" name="car" value="loan">Via loan @ 10% interest p.a. for next 4 years</li>
                         <li><input type="radio" name="car" value="savings" checked>use your savings and investments</li><br>
-                        
-                  </div>
-                  
-              </div>
-              <button class="but open_button btn btn-dark" type="submit">Buy</button>
+                        <button class="but open_button btn btn-dark" type="submit">Buy</button>
                         <br>
     
                     </form>
+                  </div>
+                  
+              </div>
             <p><br><br></p>
             
             <div class="text-center hide" id="footer9">
