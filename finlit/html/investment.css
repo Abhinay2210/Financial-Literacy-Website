@@ -30,10 +30,12 @@ body{
  
 }
 
+/* CSS for Sidebar */
+
 .wrapper .sidebar{
-  width: 200px;
+  width: 20%;
   height: 100%;
-  background: #4b4276;
+  background: #079b82;
   padding: 30px 0px;
   position: fixed;
 }
@@ -47,14 +49,14 @@ body{
 
 .wrapper .sidebar ul li{
   padding: 15px;
-  border-bottom: 1px solid #bdb8d7;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 2px solid rgba(0,0,0,0.05);
+  border-top: 2px solid rgba(255,255,255,0.05);
 }    
 
 .wrapper .sidebar ul li a{
   color: #bdb8d7;
   display: block;
+  text-decoration: none;
 }
 
 .wrapper .sidebar ul li a .fas{
@@ -62,30 +64,42 @@ body{
 }
 
 .wrapper .sidebar ul li:hover{
-  background-color: #594f8d;
+  background-color: #095785;
+  transform: scale(1.1);
 }
     
 .wrapper .sidebar ul li:hover a{
   color: #fff;
 }
 
+/* CSS for main content*/
+
 
 .wrapper .main_content{
   width: 100%;
-  margin-left: 200px;
+  margin-left: 20%;
   text-align: justify;
 }
 
 .wrapper .main_content .header{
   margin-top: 20px;
+  margin-bottom: 10px;
   padding: 20px;
-  background: rgb(250, 246, 246);
+  background:#f8c9c9;
   color: #4083e9;
-  border-bottom: 1px solid #e0e4e8;
+  text-align: center;
+  
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 3%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
-.wrapper .main_content .header:hover h1{
-  border-bottom: 1px solid #4083e9 ;
+
+
+.wrapper .main_content .header-2{
+  margin:10px;
+  padding:10px;
+  color:rgb(219, 34, 34);
 }
 
 
@@ -101,5 +115,13 @@ body{
 
 .main_content{
   padding:20px;
+  margin: 10px;
 } 
+
+img{
+  max-height: 200px;
+}
+
+
+
 

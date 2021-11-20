@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,9 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
     <title>Zeta-6</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         /*-------------------------------------------------------------------*/
 .loader {
@@ -49,14 +53,16 @@
         
         body{
             margin-left:5%;
+            display: flex;
+            justify-content: center;
         }
         .container{
             margin: 0;
-            background-image: url(img/img-6.png);
+            background-image: url("{% static 'img/img-6.png' %}");
             background-repeat: no-repeat;
             height: 1200px;
         }
-        .wrapper{ opacity:0.6;height:1000px;width: 550px; margin: 50px auto; padding: 20px; background: #f5eca8; -moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black; }
+        .wrapper{ opacity:0.6;height:max-content;width: 550px; margin: 50px auto; padding: 20px; background: #f5eca8; -moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black; }
 
 
         /*content*/
@@ -152,37 +158,143 @@ h1{
     padding: 8px;
     border-radius: 10px;
 }
+
+#table {
+	display: table;
+	width: 100%;
+	height: 100%;
+  background-color: #e5e5e5;
+}
+
+#centeralign {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.hide {
+ display: none;
+}
 </style>
 </head>
 
 <body>
     <div class="container"> <!--background image-->
-        <div class="wrapper"><!--text box semi transparent-->
+        <div class="wrapper" id="table"><!--text box semi transparent-->
             <h1>In the End!!!</h1>
-            <h3 class="cursive1">Depending upon the types of investments and situations this is how your networth would be</h3>
-            <h3 class="cursive1 name green">Favourable Situation with your stocks and other investments gaining every year. </h3>
-            <h3 class="hd"><ul class="normal"><li>80 lacs to 1 Crore with monthly investment around 40k-45k</li>
-            <li>60 lacs to 80 lacs with monthly investment around 30k-40k</li> 
-            <li>40 lacs to 60 lacs with monthly investment around 25k-35k</li>    
-            </ul></h3><br>
-            <h3 class="cursive1 name blue">Favourable Situation with your stocks and other investments gaining almost every year </h3>
-            <h3 class="hd"><ul class="normal"><li>60 lacs to 80lacs with monthly investment around 40k-45k</li>
-            <li>60 lacs to 80 lacs with monthly investment around 30k-40k</li> 
-            <li>40 lacs to 60 lacs with monthly investment around 25k-35k</li>    
-            </ul></h3>
-            <h3 class="cursive1 name red">Unfavourable Situation with your stocks and other investments gaining and losing </h3>
-            <h3 class="hd cursive1">In this you can always withdraw or check with various financial experts, market trends or simply gaining knowledge can also help.
-            </ul></h3>
-            <br><br>
-            <h3 class="cursive blue">With so much of money in investments. You can definitely fulfill your dreams of buying a house or setting up a business and think of your retirement plans.</h3>
+            
+            <p class="cursive1">Depending upon the types of investments and situations this is how your networth would be</p>
+
+            <div class="text-center container2 hide" id="footer">           
+                    
+                    <button class="ta open_button btn btn-dark" type="submit" data-toggle="collapse" data-target="#demo90">Favourable Situation</button>
+                <div class="collapse green" id="demo90">                        
+                    <ul class="normal"><li>80 lacs to 1 Crore with monthly investment around 40k-45k</li>
+                        <li>60 lacs to 80 lacs with monthly investment around 30k-40k</li> 
+                        <li>40 lacs to 60 lacs with monthly investment around 25k-35k</li>    
+                        </ul>
+             
+            </div><br>
+            </div>
+            <div class="text-center container3 hide" id="footer1">           
+                    
+                <button class="ta open_button btn btn-dark" type="submit" data-toggle="collapse" data-target="#demo0">Favourable Situation with ups and downs</button>
+            <div class="collapse green" id="demo0">                        
+                <ul class="normal">
+                    <li>60 lacs to 80 lacs with monthly investment around 40k-60k</li> 
+                    <li>40 lacs to 60 lacs with monthly investment around 25k-45k</li>
+                    </ul>
+         
+        </div><br>
+        </div>
+            
+            <div class="text-center container3 hide" id="footer2">           
+                    
+                <button class="ta open_button btn btn-dark" type="submit" data-toggle="collapse" data-target="#demo01">Favourable Situation with ups and downs</button>
+            <div class="collapse green" id="demo01">                        
+                <ul class="normal">
+                    In this you can always withdraw or check with various financial experts, market trends or simply gaining knowledge can also help.
+                    </ul>
+         
+             </div>
+            </div>
+            {% for val in nw %}
+            <h4 class="cursive1 green  hide" id="footer3">Meanwhile you check your networth which is around Rs {{val}}. Dont forget to compare it with your friends.</h4>
+            {% endfor %}
+            <h3 class="cursive blue hide" id="footer4">With so much of money in investments. You can definitely fulfill your dreams of buying a house or setting up a business and think of your retirement plans.</h3>
             <br>
-            <h3 class="cursive ">Hope you loved the application and support it. More features are to be added in this..Till then Thank you ..</h3>
+            <h3 class="cursive hide" id="footer5">Hope you loved the application and support it. More features are to be added in this..Till then Thank you ..</h3>
 
         </div>
         
         
     </div>
-    
+    <script>
+        function typeEffect(element, speed) {
+            var text = element.innerHTML;
+            element.innerHTML = "";
+            
+            var i = 0;
+            var timer = setInterval(function() {
+            if (i < text.length) {
+              element.append(text.charAt(i));
+              i++;
+            } else {
+              clearInterval(timer);
+            }
+          }, speed);
+        }
+        
+        
+        // application
+        var speed = 50;
+        var h1 = document.querySelector('h1');
+        var p = document.querySelector('p');
+        // var s = document.querySelector('h2');
+        var delay = h1.innerHTML.length * speed + speed;
+        
+        // type affect to header
+        typeEffect(h1, speed);
+        
+        
+        // type affect to body
+        setTimeout(function(){
+          p.style.display = "inline-block";
+          typeEffect(p, speed);
+        }, delay);
+        
+        
+        setTimeout(function(){
+         document.getElementById('footer').classList.remove('hide');
+        }, 7000);
+        setTimeout(function(){
+         document.getElementById('footer1').classList.remove('hide');
+        }, 14000);
+        setTimeout(function(){
+         document.getElementById('footer2').classList.remove('hide');
+        }, 17000);
+        setTimeout(function(){
+         document.getElementById('footer3').classList.remove('hide');
+        }, 21000);
+        setTimeout(function(){
+         document.getElementById('footer4').classList.remove('hide');
+        }, 24000);
+        setTimeout(function(){
+         document.getElementById('footer5').classList.remove('hide');
+        }, 27000);
+        setTimeout(function(){
+         document.getElementById('footer6').classList.remove('hide');
+        }, 30000);
+        setTimeout(function(){
+         document.getElementById('footer7').classList.remove('hide');
+        }, 33000);
+        setTimeout(function(){
+         document.getElementById('footer8').classList.remove('hide');
+        }, 36000);
+        setTimeout(function(){
+         document.getElementById('footer9').classList.remove('hide');
+        }, 39000);
+        
+        </script>
 </body>
 </html>
 

@@ -13,6 +13,9 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nothing+You+Could+Do&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Zeta-2</title>
     <style>
         body {
@@ -31,7 +34,7 @@
         .wrapper {
             opacity: 0.8;
             height: max-content;
-            width: 550px;
+            width: 650px;
             margin: 50px auto;
             padding: 20px;
             background: #f5eca8;
@@ -81,7 +84,7 @@
 
         .cursive {
             color: black;
-            font-weight: 600;
+            font-weight: 800;
             /* font-family: 'Kaushan Script', cursive; */
             font-family: 'Nothing You Could Do', cursive;
             font-size: 25px;
@@ -193,6 +196,32 @@
         }
 
         /*-------------Overlay------------------*/
+        
+        p {
+  text-align: left;
+  margin: 0;
+  text-transform: lowercase;
+  font-size: 10pt;
+  font-weight: 900;
+  width: 100%;
+  display: none;
+}
+
+#table {
+	display: table;
+	width: 100%;
+	height: 100%;
+  background-color: #e5e5e5;
+}
+
+#centeralign {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.hide {
+ display: none;
+}
     </style>
 </head>
 
@@ -200,86 +229,153 @@
     <div class="loader">
         <div class="cursive">After 1 year..</div>
     </div>
-    <div class="container">
+    <div class="container" id="table">
         <!--background image-->
-        <div class="wrapper">
+        <div class="wrapper" id="text">
             <!--text box semi transparent-->
             <h1>In the beginning</h1>
-            <h3 class="cursive blue">Its been an year that you have got a job/ started working.. </h3> <br>
-            <h3 class="cursive">You have started learning quite a bit about this professional and financial world </h3>
+            <p class="cursive blue">Its been an year that you have got a job/ started working.. 
+            You have started learning quite a bit about this professional and financial world </p>
             <br>
 
-            <h3 class="cursive1">You also got a {{percent.0}}% increment in your salary. Now your monthly income is
+            <h3 class="cursive1 hide" id="footer">You also got a {{percent.0}}% increment in your salary. Now your monthly income is
                 {{member.income}} </h3><br>
 
-            <h3 class="normal">
+            <h3 class="normal hide" id="footer1">
                 <ul>
-                    <div class="open_button cursive green">Here is your Portfolio Status:</div>
-                    <div class="hd">
-                        <li>Stocks: {{prtf.stocks}} (+15%) </li>
-                        <li>Mutual Funds: {{prtf.mutual_funds}} (+20%) </li>
-                        <li>Fixed Deposits: {{prtf.fds}} (+5%)</li>
-                        <li>Gold: {{prtf.gold}} (+3%)</li>
-                    </div>
+                    <div class="container1">
+                        <button type="button" class="btn btn-outline-info cursive1" style="border: 2px solid black;" data-toggle="collapse" data-target="#demo3">Here is your Portfolio Status:</button>
+                          <div id="demo3" class="collapse green">
+                            <li>Stocks: {{prtf.stocks}} (+15%) </li>
+                            <li>Mutual Funds: {{prtf.mutual_funds}} (+20%) </li>
+                            <li>Fixed Deposits: {{prtf.fds}} (+5%)</li>
+                            <li>Gold: {{prtf.gold}} (+3%)</li>
+                          </div>
+                          
+                      </div>
                 </ul>
             </h3> <br>
-            <h3 class="cursive1 red">One thing you noticed is that the amount of tax being paid, which increases as your
+            <h3 class="cursive1 red hide" id="footer2">One thing you noticed is that the amount of tax being paid, which increases as your
                 income increases. </h3>
-            <h3 class="cursive1">Professional tax : -Rs. 80,000 </h3><br>
+            <h3 class="cursive1 hide" id="footer3">Professional tax : -Rs. 80,000 </h3><br>
 
-            <div class="text-center ">
+            <div class="text-center hide " id="footer4">
                 <!-- <input type="submit" value="advice" name="advice"> -->
                 <button class="ta open_button btn btn-dark" type="submit"><a href="{% static 'advice.html#save-tax' %}">How to avoid Taxes ?</a></button>
 
             </div>
             <br>
-            <details>
-                <summary>
-                    <div class="open_button cursive1">Also since childhood you always wished to have your own car of
-                        price approx 6 lakhs.So you can:</div>
-                </summary>
-                <p>
-                <ul class="normal">
-                    <li>Buy a car by taking credit from the bank @10% interest p.a for next 4 years</li>
-                    <li>Use all your savings</li>
-                </ul>
-                </p>
-            </details>
-            <div class="text-center ">
-                
-                    <!-- <input type="submit" value="advice" name="advice"> -->
-                    <button class="ta open_button btn btn-dark" type="submit"><a href="{% static 'advice.html' %}">Take advice</a></button>
-    
-            </div>
-            <br>
-            <h3 class="cursive blue">So you decide to buy a car now and fulfill your childhood dream.</h3>
-            <h3 class="cursive1 green">Overall you have Rs {{prtf.balance}} in your hands and you keep on adding your
-                investments.</h3>
+            <h3 class="cursive1 green hide " id="footer5">Overall you have Rs {{prtf.balance}} in your hands and you keep on adding your
+                investments.</h3> 
+               
+            <div class="open_button cursive1 hide" id="footer6">But since childhood you always wished to have your own car of
+                    price approx 8 lakhs.</div>
+            <h3 class="cursive blue hide" id="footer7">So you decide to buy a car now and fulfill your childhood dream.</h3><br>
 
-            <!-- ------------------------------------------------------------------- -->
-            <div class="text-center">
+            <div class="container1 hide" id="footer8">
+                <button type="button" class="btn btn-outline-info cursive1" style="border: 2px solid black;" data-toggle="collapse" data-target="#demo33"> You have two options...</button>
+                  <div id="demo33" class="collapse green">
+                    <form action="invest" class="text-center cursive1 blue"method="POST">
+                        {% csrf_token %}
+                        <li><input type="radio" name="car" value="loan">Via loan @ 10% interest p.a. for next 4 years</li>
+                        <li><input type="radio" name="car" value="savings" checked>use your savings and investments</li><br>
+                        <button class="but open_button btn btn-dark" type="submit">Buy</button>
+                        <br>
+    
+                    </form>
+                  </div>
+                  
+              </div>
+            <p><br><br></p>
+            
+            <div class="text-center hide" id="footer9">
+                <button class="ta open_button btn btn-dark" type="submit"><a href="{% static 'advice.html' %}">Take advice</a></button>
+                <p><br><br></p>
                 <form action="withdraw" method="POST">
                     {% csrf_token %}
                     <!-- <input type="submit" value="Withdraw" name="withdraw"> -->
                     <button class="but open_button btn btn-dark" type="submit">Withdraw</button>
 
                 </form>
+                    <!-- <input type="submit" value="advice" name="advice"> -->
+    
             </div>
-            <!-- ------------------------------------------------------------------------------------- -->
-            <div class="text-center">
-                <h3>How you want to purchase your dream car ?:</h3>
-                <form action="invest" method="POST">
-                    {% csrf_token %}
-                    <input type="radio" name="car" value="loan">Via loan with 10% interest p.a.
-                    <input type="radio" name="car" value="savings" checked>Via savings(then you get less amount to
-                    invest in other things like stocks,golds,etc) <br>
-                    <button class="but open_button btn btn-dark" type="submit">Invest</button>
+            <br>
+           
 
-                </form>
-            </div>
+            <!-- ------------------------------------------------------------------- -->
+            
+            <!-- ------------------------------------------------------------------------------------- -->
+           
         </div>
     </div>
+<script>
+function typeEffect(element, speed) {
+	var text = element.innerHTML;
+	element.innerHTML = "";
+	
+	var i = 0;
+	var timer = setInterval(function() {
+    if (i < text.length) {
+      element.append(text.charAt(i));
+      i++;
+    } else {
+      clearInterval(timer);
+    }
+  }, speed);
+}
 
+
+// application
+var speed = 50;
+var h1 = document.querySelector('h1');
+var p = document.querySelector('p');
+// var s = document.querySelector('h2');
+var delay = h1.innerHTML.length * speed + speed;
+
+// type affect to header
+typeEffect(h1, speed);
+
+
+// type affect to body
+setTimeout(function(){
+  p.style.display = "inline-block";
+  typeEffect(p, speed);
+}, delay);
+
+
+setTimeout(function(){
+ document.getElementById('footer').classList.remove('hide');
+}, 11000);
+setTimeout(function(){
+ document.getElementById('footer1').classList.remove('hide');
+}, 14000);
+setTimeout(function(){
+ document.getElementById('footer2').classList.remove('hide');
+}, 17000);
+setTimeout(function(){
+ document.getElementById('footer3').classList.remove('hide');
+}, 21000);
+setTimeout(function(){
+ document.getElementById('footer4').classList.remove('hide');
+}, 24000);
+setTimeout(function(){
+ document.getElementById('footer5').classList.remove('hide');
+}, 27000);
+setTimeout(function(){
+ document.getElementById('footer6').classList.remove('hide');
+}, 30000);
+setTimeout(function(){
+ document.getElementById('footer7').classList.remove('hide');
+}, 33000);
+setTimeout(function(){
+ document.getElementById('footer8').classList.remove('hide');
+}, 36000);
+setTimeout(function(){
+ document.getElementById('footer9').classList.remove('hide');
+}, 39000);
+
+</script>
 </body>
 
 </html>

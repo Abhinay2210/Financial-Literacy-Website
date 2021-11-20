@@ -13,6 +13,10 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nothing+You+Could+Do&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Zeta-4</title>
     <style>
         /*-------------------------------------------------------------------*/
@@ -60,14 +64,14 @@
         .container {
             margin: 0;
             background-repeat: no-repeat;
-            background-image: url("{% static 'img/img-5.png' %}");
+            background-image: url("https://frazerjames.co.uk/wp-content/uploads/2020/05/Money-growth-scaled.jpg");
             height: 1200px;
         }
 
         .wrapper {
             opacity: 0.8;
             height: max-content;
-            width: 550px;
+            width: 650px;
             margin: 50px auto;
             padding: 20px;
             background: #f5eca8;
@@ -185,6 +189,22 @@
             padding: 8px;
             border-radius: 10px;
         }
+        
+#table {
+	display: table;
+	width: 100%;
+	height: 100%;
+  background-color: #e5e5e5;
+}
+
+#centeralign {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.hide {
+ display: none;
+}
     </style>
 </head>
 
@@ -198,77 +218,77 @@
             <!--text box semi transparent-->
             <h1>Planting a tree</h1>
 
-            <h3 class="cursive blue">Here is how your differet assets have performed over the last year on an average
-            </h3> <br><br>
-            <h3 class="normal">
+            <p class="cursive blue">Here is how your differet assets have performed over the last year on an average
+            </p> 
+            <br><br>
+            <h3 class="normal hide" id="footer">
                 <ul>
-                    <div class="open_button cursive green">Here is how your assets performed</div>
-                    <div class="hd">
-                        <li>Stocks {{prtf.stocks}} (- 14%)</li>
+                  
+                    <div class="container1">
+                        <button type="button" class="btn btn-outline-info cursive1" style="border: 2px solid black;" data-toggle="collapse" data-target="#demo">Check here</button>
+                          <div id="demo" class="collapse green">
+                            <li>Stocks {{prtf.stocks}} (- 14%)</li>
                         <li>Mutual Funds {{prtf.mutual_funds}} (- 12%)</li>
                         <li>Gold {{prtf.gold}} (+ 2.7%)</li>
                         <li>Bank FDs {{prtf.fds}} (+ 4.5%)</li>
-                    </div>
+                        <li>Professional Tax &nbsp -Rs 80,000</li>
+                        <li>Car Loan &nbsp&nbsp -Rs {{prtf.loans}} </li>  
+                          </div>
+                          
+                      </div>
                 </ul>
             </h3> <br>
 
             </ul>
-            <h3 class="cursive1 green">Your salary has been incremented by 10% but another organization gives you 20%
-                increment</h3>
+            <h3 class="cursive1 green hide" id="footer1">Your salary has been incremented by {{percent.0}}% but another organization gives you 20% increment</h3>
             <ul>
-                <h3 class="normal">
-                    <div class="name cursive1">Now you have two options</div>
-                    <div class="hd"> <br>
-                        <li>Continue old job</li>
-                        <li>Shift to new job</li>
-                    </div>
+                <h3 class="normal hide" id="footer2">
+                    <div class="container2">
+                        <button type="button" class="btn btn-outline-info cursive1" style="border: 2px solid black;" data-toggle="collapse" data-target="#demo0">Now you have two options</button>
+                          <div id="demo0" class="collapse green">
+                            <li>Continue old job</li>
+                            <li>Shift to new job</li> 
+                          </div>
+                          
+                      </div>
                 </h3>
             </ul>
 
             <br>
-            <div class="cursive">
+            <div class="cursive hide" id="footer3">
                 &nbsp &nbsp &nbsp &nbsp &nbspIf you relocated your job you will have extra expences in the form of rent,
                 so you hold back to your old organization
-            </div> <br><br>
-            {% for save in mon_save %}
-                <h4 class="cursive1 green">On a monthly basis you are able to save {{save}} monthly. so you may plan to
-                buy a stock with SIP</h4>
-            {% endfor %}
-
-            <div class="text-center">
-                <button type="button" class="ta open_button btn btn-dark"><a href="Investment.html#basic">What is
-                        SIP</a></button>
-                <!--<div class="hd">                        
-                        <li style="font-size: 25px; color:black; margin-left: 100px;">What is SIP</li>
-                    </div>-->
+            <br><br></div> 
+            
+            <h3 class="cursive1 green hide" id="footer4">
+                On a monthly basis you are able to save {{mon_save.0}} monthly. so you may plan to
+            buy a stock with SIP
+            
+        </h3>
+            
+        
+            <div class="text-center hide" id="footer5">
+                <button class="ta open_button btn btn-dark" type="submit"><a href="{% static 'advice.html#sip' %}">What is SIP ?</a></button>
             </div><br><br>
 
-            <h4 class="cursive red">There's a good new for you. Your parents have arranged marriage for your sister, so
+            <h4 class="cursive red hide" id="footer6">There's a good new for you. Your parents have arranged marriage for your sister, so
                 you decide to contribute and spend 1.2 lakhs from your savings.
             </h4><br>
-            {% for val in nw %}
-            <h4 class="cursive1 green">Meanwhile you check your networth which ia round Rs {{val}}.</h4>
-            {% endfor %}
+            
+            <p class="cursive1 green hide" id="footer7">
+                
+                    Meanwhile you check your networth which is around Rs {{nw.0}}.
+                 </p>
+            
             <div class="text-center ">
-
-                <form action="advice" method="POST">
-                    {% csrf_token %}
-                    <!-- <input type="submit" value="advice" name="advice"> -->
-                    <button class="ta open_button btn btn-dark" type="submit">Advice</button>
-
-                </form>
-
-                <h3 class="normal options">
-                    <button type="button" class="ta open_button btn btn-dark"><a href="Investment.html">What is
-                            NetWorth</a></button>
-                    <div class="hd cursive">
-                        the total wealth of an individual, company, or household, taking account of all financial assets
-                        and liabilities.
-                    </div>
+                <h3 class="normal options hide" id="footer8">
+                    
+                    <button class="ta open_button btn btn-dark" type="submit"><a href="{% static 'advice.html' %}">What is Networth ?</a></button>
+                   
                 </h3>
             </div><br><br>
 
-            <div class="text-center">
+            <div class="text-center hide" id="footer9">
                 <form action="withdraw" method="POST">
                     {% csrf_token %}
                     <!-- <input type="submit" value="Withdraw" name="withdraw"> -->
@@ -287,7 +307,73 @@
             </div>
         </div>
     </div>
-
+    <script>
+        function typeEffect(element, speed) {
+            var text = element.innerHTML;
+            element.innerHTML = "";
+            
+            var i = 0;
+            var timer = setInterval(function() {
+            if (i < text.length) {
+              element.append(text.charAt(i));
+              i++;
+            } else {
+              clearInterval(timer);
+            }
+          }, speed);
+        }
+        
+        
+        // application
+        var speed = 50;
+        var h1 = document.querySelector('h1');
+        var p = document.querySelector('p');
+        // var s = document.querySelector('h2');
+        var delay = h1.innerHTML.length * speed + speed;
+        
+        // type affect to header
+        typeEffect(h1, speed);
+        
+        
+        // type affect to body
+        setTimeout(function(){
+          p.style.display = "inline-block";
+          typeEffect(p, speed);
+        }, delay);
+        
+        
+        setTimeout(function(){
+         document.getElementById('footer').classList.remove('hide');
+        }, 4000);
+        setTimeout(function(){
+         document.getElementById('footer1').classList.remove('hide');
+        }, 7000);
+        setTimeout(function(){
+         document.getElementById('footer2').classList.remove('hide');
+        }, 10000);
+        setTimeout(function(){
+         document.getElementById('footer3').classList.remove('hide');
+        }, 13000);
+        setTimeout(function(){
+         document.getElementById('footer4').classList.remove('hide');
+        }, 16000);
+        setTimeout(function(){
+         document.getElementById('footer5').classList.remove('hide');
+        }, 18000);
+        setTimeout(function(){
+         document.getElementById('footer6').classList.remove('hide');
+        }, 21000);
+        setTimeout(function(){
+         document.getElementById('footer7').classList.remove('hide');
+        }, 24000);
+        setTimeout(function(){
+         document.getElementById('footer8').classList.remove('hide');
+        }, 27000);
+        setTimeout(function(){
+         document.getElementById('footer9').classList.remove('hide');
+        }, 30000);
+        
+        </script>
 </body>
 
 </html>
